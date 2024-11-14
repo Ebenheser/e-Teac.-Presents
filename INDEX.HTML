@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Guru</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input, button {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Absensi Guru</h1>
+    <form id="absenForm">
+        <label for="nama">Nama Guru:</label>
+        <input type="text" id="nama" name="nama" required>
+        <button type="submit">Kirim Absensi</button>
+    </form>
+
+    <script>
+        document.getElementById('absenForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var nama = document.getElementById('nama').value;
+            var nomorKepsek = '6281243135329'; // Ganti dengan nomor WhatsApp Kepala Sekolah
+            var pesan = 'Saya hadir. ' + nama;
+            var url = 'https://wa.me/' + nomorKepsek + '?text=' + encodeURIComponent(pesan);
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
